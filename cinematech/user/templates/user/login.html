@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Login Page{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="form-box">
+        <h2>Login</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="remember">
+                <input type="checkbox" id="remember">
+                <label for="remember">Remember me</label>
+            </div>
+            <button type="submit" class="btnlogin">Login</button>
+        </form>
+        <p class="register-text">Don't have an account? 
+            <a href="{% url 'register' %}" class="register-link">Register</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

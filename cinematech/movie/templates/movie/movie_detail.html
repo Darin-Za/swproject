@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ movie.title }} - Details</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0; 
+            padding: 0;
+            color: #333;
+            background-image: url("{% static 'img/bgimg.jpg' %}");
+            background-size: cover;
+            background-repeat: repeat;
+            background-position: center;
+        }
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #5d1102;
+            margin-bottom: 25px;
+            font-weight: 700;
+            font-size: 2.2rem;
+        }
+        .poster {
+            width: 300px;
+            height: 450px;
+            margin: 0 auto 30px auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(93, 17, 2, 0.2);
+            object-fit: cover;
+            background-color: #ddd;
+            display: block;
+        }
+        .no-poster {
+            width: 300px;
+            height: 450px;
+            line-height: 450px;
+            margin: 0 auto 30px auto;
+            color: #999;
+            font-style: italic;
+            border-radius: 12px;
+            background-color: #ddd;
+            box-shadow: 0 4px 8px rgba(93, 17, 2, 0.2);
+        }
+        p {
+            line-height: 1.6;
+            font-size: 1.1rem;
+            margin-bottom: 18px;
+            text-align: left;
+        }
+        strong {
+            color: #5d1102;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 0 3px 8px rgba(93, 17, 2, 0.4);
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+        }
+        .back-link {
+            background-color: #5d1102;
+            color: #fff;
+            margin-right: 15px;
+        }
+        .back-link:hover {
+            background-color: #7a1c01;
+            box-shadow: 0 5px 15px rgba(122, 28, 1, 0.6);
+        }
+        .booking-btn {
+            background-color: #f3cb6edc;
+            color: #000;
+        }
+        .booking-btn:hover {
+            background-color: #c7a65adc;
+            box-shadow: 0 5px 15px #64532cdc(20, 94, 102, 0.6);
+            color: #fff;
+        }
+        .buttons-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ movie.title }}</h1>
+        {% if movie.poster %}
+            <img src="{{ movie.poster.url }}" alt="{{ movie.title }}" class="poster" />
+        {% else %}
+            <div class="no-poster">No poster available</div>
+        {% endif %}
+        <p><strong>IMDb Rating:</strong> {{ movie.rating }}</p>
+        <p><strong>Description:</strong> {{ movie.description }}</p>
+        <p><strong>Release Year:</strong> {{ movie.release_year }}</p>
+        
+        <div class="buttons-container">
+            <a href="{% url 'movie-list' %}" class="btn back-link">&larr; Back to Movies List</a>
+            
+            <a href="{% url 'booking_create' movie.id %}" class="btn booking-btn">Book Now</a>
+        </div>
+    </div>
+</body>
+</html>

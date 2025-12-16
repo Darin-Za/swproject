@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-image: url('../img/bgimg.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    padding: 20px 100px;
+    background-color:  #5d1102;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+header img {
+    width: 120px;
+    height: auto;
+    border-radius: 40%;
+}
+
+.navigation a {
+    position: relative;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    margin-left: 50px;
+    font-weight: 500;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    border-radius: 5px;
+    background: white;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation a:hover::after {
+    transform: scaleX(1);
+}
+
+.navigation .btnlogin {
+    color: white;
+    font-size: 20px;
+    margin-left: 50px;
+    padding: 10px;
+    width: 130px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 500;
+    outline: none;
+    background-color: transparent;
+    border: 2px solid white;
+    transition: .5s;
+}
+
+.navigation .btnlogin:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Main container */
+.maindiv {
+    margin-top: 100px;
+    padding: 20px;
+    width: 85%;
+    background-color: #ffffffcc;
+    margin-inline: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #00000033;
+}
+
+/* Movie grid */
+.movies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.movie-card {
+    background-color: white;
+    border: 2px solid #5d1102;
+    border-radius: 10px;
+    width: 250px;
+    overflow: hidden;
+    position: static; 
+    transition: transform 0.3s;
+}
+
+.movie-poster {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.movie-info {
+    padding: 15px;
+    text-align: left;
+}
+
+.movie-info h2 {
+    color:  #5d1102;
+}
+
+/* Footer */
+footer {
+    background-color: #5d1102;
+    padding: 20px 90px;
+    min-height: 300px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    border-radius: 20px 20px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+}
+
+footer img {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.footer-section {
+    display: inline-block;
+    max-width: 50%;
+    min-width: 250px;
+}
+
+.contact_us {
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+    margin: 10px 0;
+}
+
+.contact_us_icon a {
+    padding: 10px;
+    display: inline-block;
+}
+
+.contact_us_icon i {
+    color: white;
+    transition: color 0.3s;
+}
+
+.contact_us_icon i:hover {
+    color: #f3cb6e;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.footer-links li a:hover {
+    color: #f3cb6e;
+}
+
+.footer-copy {
+    color: white;
+    text-align: center;
+    width: 100%;
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+/* Communication Icons */
+.Communicationicons {
+    position: fixed;
+    left: 33px;
+    z-index: 1001;
+}
+
+.Communicationicons1 { top: 200px; }
+.Communicationicons2 { top: 245px; }
+.Communicationicons3 { top: 290px; }
+.Communicationicons4 { top: 335px; }
+
+.navigation a:has(button)::after {
+    display: none;
+}
+

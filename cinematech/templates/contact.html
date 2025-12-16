@@ -1,0 +1,44 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+contact page  
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<style>
+    body{
+        font-family: sans-serif;
+        align-items: center;
+        justify-content: center;
+        color:black;
+        margin:50px 70px;
+        margin-top: 250px;
+    }
+    div{
+        font-family: sans-serif;
+        align-items: center;
+        justify-content: center;
+        color:black
+    }
+    h2{
+        color:#5d1102
+    }
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div>
+    <br>
+    <h1> Contact us </h1>
+    <br>
+    <p>Welcome to Cinematech Cinema</p>
+    <br>
+    <p>you can contact us in <a href="#">+20 1112223366</a> </p>
+    <br>
+</div>
+{% endblock %}

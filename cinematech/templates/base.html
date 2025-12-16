@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}Cinematech{% endblock %}</title>
+
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+        {% block style %}{% endblock %}
+    </head>
+    <body>
+        <a name="up"></a>
+
+        <!-- Communication Icons -->
+        <div class="Communicationiconsbar">
+            <a class="Communicationicons1 Communicationicons" href="mailto:someone@example.com">
+                <i class="fa-solid fa-envelope fa-2xl" style="color:  #5d1102;"></i>
+            </a>
+            <a class="Communicationicons2 Communicationicons" href="https://www.facebook.com/" target="_blank">
+                <i class="fa-brands fa-facebook fa-2xl" style="color:  #5d1102;"></i>
+            </a>
+            <a class="Communicationicons3 Communicationicons" href="#up">
+                <i class="fa-solid fa-arrow-up fa-2xl" style="color:  #5d1102;"></i>
+            </a>
+        </div>
+
+        <!-- Header -->
+        <header>
+            <h2 class="logo">
+                <a href="{% url 'welcome' %}">
+                    <img src="{% static 'img/logo1.png' %}" alt="Logo" >
+                </a>
+            </h2>
+            <nav class="navigation">
+                <a href="{% url 'welcome' %}">Home</a>
+                <a href="{% url 'about' %}">About</a>
+                <a href="{% url 'contact' %}">Contact</a>
+                <a href="{% url 'login' %}">
+                    <button class="btnlogin">Login</button>
+                </a>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="maindiv">
+            {% block content %}{% endblock %}
+        </main>
+
+        <!-- Footer -->
+        <br><br><br>
+        <footer>
+            <div class="footer-section">
+                <a id="logoimglink" href="{% url 'welcome' %}">
+                    <img src="{% static 'img/logo1.png' %}" alt="Logo">
+                </a>            
+                <div class="contact_us">Contact us</div>
+                <div class="contact_us_icon">
+                    <a href="mailto:someone@example.com"><i class="fa-solid fa-envelope fa-2xl"></i></a>
+                    <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook fa-2xl"></i></a>
+                    <a onclick="phoneNumber();"><i class="fa-solid fa-phone fa-2xl"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <ul class="footer-links">
+                    <li><a href="{% url 'welcome' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+            <p class="footer-copy">Copyright © ITI</p>
+        </footer>
+
+        <script>
+            function phoneNumber() {
+                alert("To contact us dial +20 1112223366");
+            }
+        </script>
+    </body>
+</html>

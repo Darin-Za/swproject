@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Movies List{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/profile_list.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!-- Header Custom (if different from base.html) -->
+    <div class="headdiv">
+        <div>
+            <a id="logoimglink" href="{% url 'welcome' %}">
+                <img
+                    src="{% static 'img/logo1.png' %}"
+                    alt="Logo"
+                    style="width: 150px; height: 69px; border-radius: 40%; padding: 0px; margin-top: 20px"
+                    class="logoimg"
+                />
+            </a>
+        </div>
+        <nav>
+            <div class="linkpadg1 linkpadg">
+                <a href="{% url 'logout' %}"><a href="{% url 'welcome' %}">Home and Logout</a></a>
+            </div>
+            <div class="linkpadg2 linkpadg">
+                <a href="{% url 'movie-list' %}">Movies List</a>
+            </div>
+            <div class="linkpadg3 linkpadg">
+                <a href="{% url 'profile' %}">User Profile</a>
+            </div>
+        </nav>
+    </div>
+
+
+<h1>Movies currently showing in Cinematech</h1>
+
+<div class="movies-grid">
+    {% for movie in movies %}
+    <div class="movie-card">
+        {% if movie.poster %}
+        <img class="movie-poster" src="{{ movie.poster.url }}" alt="{{ movie.title }}">
+        {% else %}
+            <p>No poster available</p>        
+        {% endif %}
+        <div class="movie-info">
+            <h2><a href="{% url 'movie_detail' movie.id %}">{{ movie.title }}</a></h2>
+            <p><strong>IMDb Rating:</strong> {{ movie.rating }}</p>
+            <p><strong>Release Year:</strong> {{ movie.release_year }}</p>
+        </div>
+    </div>
+    {% empty %}
+    <p>No movies available at the moment.</p>
+    {% endfor %}
+</div>
+{% endblock %}

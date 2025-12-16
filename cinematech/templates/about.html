@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+contact page  
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<style>
+    body{
+        font-family: sans-serif;
+        align-items: center;
+        justify-content: center;
+        color:black;
+        margin:50px 70px;
+        margin-top: 250px;
+    }
+    h2{
+        color:rgb(149, 44, 44)
+    }
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div>
+<h2> About us </h2>
+<br>
+<p>Welcome to Cinematech Cinema</p>
+<br>
+<p>Our website  that help you to booking ticket for any movie </p>
+</div>
+{% endblock %}
